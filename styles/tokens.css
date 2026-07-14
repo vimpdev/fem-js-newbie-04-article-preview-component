@@ -1,0 +1,43 @@
+@layer tokens {
+
+  :root {
+    /* PRIMITIVE TOKENS */
+    --clr-white: #FFFFFF;
+    --clr-grey-900: #48556A;
+    --clr-grey-500: #6E8098;
+    --clr-grey-400: #9DAEC2;
+    --clr-grey-200: #ECF2F8;
+
+    --space-0: 0;
+    --space-200: 16px;
+    --space-300: 24px;
+    --space-400: 32px;
+    --space-500: 40px;
+    --space-600: 48px;
+    --space-700: 56px;
+    --space-800: 64px;
+    --space-1300: 104px;
+    --space-2000: 160px;
+
+    /* SEMANTIC TOKENS */
+    --clr-text-primary: var(--clr-grey-900);
+    --clr-text-secondary: var(--clr-grey-500);
+    --clr-text-muted: var(--clr-grey-400);
+    --clr-surface-primary: var(--clr-grey-200);
+    --clr-surface-secondary: var(--clr-white);
+    --clr-surface-inverse: var(--clr-grey-900);
+
+    --ff-base: 'Manrope', system-ui, sans-serif;
+
+    --fs-heading: 20px;
+    --fs-body: 13px;
+
+    --fw-medium: 500;
+    --fw-bold: 700;
+
+    --radius-100: 10px;
+    --radius-full: 50%;
+
+    --transition-fast: .25s ease-out;
+  }
+}
