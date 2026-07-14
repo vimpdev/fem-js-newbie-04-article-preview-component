@@ -1,0 +1,22 @@
+{
+  "name": "fem-js-newbie-04-article-preview-component",
+  "version": "1.0.0",
+  "description": "Frontend Mentor - Article Preview Component",
+  "type": "module",
+  "author": "VIMP",
+  "license": "ISC",
+  "scripts": {
+    "dev": "servor . --reload",
+    "deploy": "gh-pages -d ."
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.13.0",
+      "onFail": "download"
+    }
+  },
+  "devDependencies": {
+    "servor": "^4.0.2"
+  }
+}
