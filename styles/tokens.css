@@ -4,9 +4,10 @@
     /* PRIMITIVE TOKENS */
     --clr-white: #FFFFFF;
     --clr-grey-900: #48556A;
-    --clr-grey-500: #6E8098;
-    --clr-grey-400: #9DAEC2;
+    --clr-grey-500: #66778D;
+    --clr-grey-400: #6b7684;
     --clr-grey-200: #ECF2F8;
+    --clr-grey-100: #C9D5E1;
 
     --space-0: 0;
     --space-200: 16px;
@@ -23,9 +24,11 @@
     --clr-text-primary: var(--clr-grey-900);
     --clr-text-secondary: var(--clr-grey-500);
     --clr-text-muted: var(--clr-grey-400);
+    --clr-text-inverse: var(--clr-white);
     --clr-surface-primary: var(--clr-grey-200);
     --clr-surface-secondary: var(--clr-white);
     --clr-surface-inverse: var(--clr-grey-900);
+    --clr-surface-hover: var(--clr-grey-500);
 
     --ff-base: 'Manrope', system-ui, sans-serif;
 

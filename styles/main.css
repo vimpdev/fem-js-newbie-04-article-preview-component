@@ -1,15 +1,311 @@
-@layer reset, fonts, tokens, base, layout, components, utilities, states;
+@layer reset, fonts, tokens, base, layout, components, utilities;
 
 @import url('./reset.css') layer(reset);
 @import url('./fonts.css') layer(fonts);
 @import url('./tokens.css') layer(tokens);
 
-@layer base {}
+@layer base {
 
-@layer layout {}
+  body {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    place-items: center;
+    font-family: var(--ff-base);
+    background-color: var(--clr-surface-primary);
+    color: var(--clr-text-primary);
+  }
 
-@layer components {}
+  :focus-visible {
+    outline-color: var(--clr-ring, currentColor);
+  }
+}
 
-@layer utilities {}
+@layer layout {
 
-@layer states {}
+  main {
+    margin-block-start: 4.2188rem;
+  }
+}
+
+@layer components {
+
+  .card {
+    --max-width: 20.5rem;
+
+    inline-size: min(100% - var(--space-300), var(--max-width));
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    background-color: var(--clr-surface-secondary);
+    border-radius: var(--radius-100);
+    box-shadow: 0 2.5rem 2.5rem -0.625rem color-mix(in srgb, var(--clr-grey-100) 50%, transparent);
+
+    position: relative;
+
+    @media (width >=48rem) {
+      --max-width: 38rem;
+
+      grid-template-columns: 14.3125rem 1fr;
+      position: static;
+    }
+
+    @media (width >=64rem) {
+      --max-width: 45.625rem;
+
+      grid-template-columns: 17.8125rem 1fr;
+    }
+  }
+
+  .card__media {
+    block-size: 12.5rem;
+    border-radius: var(--radius-100) var(--radius-100) 0 0;
+    overflow: clip;
+
+    img {
+      block-size: 100%;
+      inline-size: 100%;
+      object-fit: cover;
+      object-position: 0 -1rem;
+    }
+
+    @media (width >=48rem) {
+      block-size: 100%;
+      border-radius: var(--radius-100) 0 0 var(--radius-100);
+
+      img {
+        object-position: center 0;
+      }
+    }
+
+    @media (width >=64rem) {
+      img {
+        object-position: left 0;
+      }
+    }
+  }
+
+  .card__body {
+    --stack-space: var(--space-600);
+
+    padding: 1.9063rem 1.9063rem 1.125rem;
+
+    @media (width >=48rem) {
+      --stack-space: var(--space-300);
+
+      padding: var(--space-500);
+      padding-inline-start: var(--space-400);
+    }
+
+    @media (width >=64rem) {
+      padding: var(--space-400) var(--space-500);
+    }
+  }
+
+  .card__content {
+    --stack-space: var(--space-300);
+
+    h1 {
+      font-size: var(--fs-heading);
+      letter-spacing: 0.0125em;
+      line-height: 1.3;
+    }
+
+    p {
+      font-size: var(--fs-body);
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.0093em;
+      line-height: 1.4;
+      color: var(--clr-text-secondary);
+    }
+
+    @media (width >=48rem) {
+      --stack-space: var(--space-300);
+    }
+  }
+
+  .card__author {
+    --cluster-space: var(--space-200);
+
+    img {
+      inline-size: 2.5rem;
+      block-size: 2.5rem;
+      border-radius: var(--radius-full);
+    }
+  }
+
+  .card__author-content {
+    font-size: var(--fs-body);
+    letter-spacing: 0.0093em;
+    line-height: 1.4;
+
+    p {
+      font-weight: var(--fw-bold);
+    }
+
+    time {
+      font-weight: var(--fw-medium);
+      color: var(--clr-text-muted);
+    }
+  }
+
+  .card__share {
+    margin-inline-start: auto;
+
+    @media (width >=48rem) {
+      position: relative;
+    }
+  }
+
+  .card__share-button {
+    --clr-ring: var(--clr-surface-hover);
+
+    inline-size: 2rem;
+    block-size: 2rem;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-full);
+    color: var(--clr-text-secondary);
+    background-color: var(--clr-surface-primary);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+
+    position: relative;
+    z-index: 10;
+
+    &:is(:hover, :focus-visible) {
+      background-color: var(--clr-surface-hover);
+      color: var(--clr-text-inverse);
+    }
+
+    svg {
+      inline-size: 1rem;
+      block-size: 1rem;
+    }
+  }
+
+  /* PANEL */
+  .card__share-panel {
+    --cluster-space: 1.375rem;
+
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-end: 0;
+
+    inline-size: 100%;
+    block-size: 4.75rem;
+    padding-inline: 1.9063rem;
+    color: var(--clr-text-inverse);
+    background-color: var(--clr-surface-inverse);
+    border-radius: 0 0 var(--radius-100) var(--radius-100);
+    box-shadow: 0 0.625rem 0.625rem color-mix(in srgb, var(--clr-grey-100) 50%, transparent);
+
+    span {
+      font-size: var(--fs-body);
+      font-weight: var(--fw-medium);
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      line-height: 1.4;
+    }
+
+    @media (width >=48rem) {
+      inline-size: 15.5rem;
+      block-size: 3.4375rem;
+      justify-content: center;
+      border-radius: var(--radius-100);
+
+      inset-inline-start: 50%;
+      inset-block-end: calc(100% + 1.75rem);
+
+      translate: -50% 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset-block-start: calc(100% - 0.5rem);
+        inline-size: 1rem;
+        block-size: 1rem;
+        background-color: inherit;
+        rotate: 45deg;
+        pointer-events: none;
+        z-index: -1;
+      }
+    }
+  }
+
+  .social {
+    --cluster-space: 0.625rem;
+    --clr-ring: var(--clr-surface-primary);
+  }
+
+  .social__link {
+    block-size: 1.8rem;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-full);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+
+    &:is(:hover, :focus-visible) {
+      color: var(--clr-text-primary);
+      background-color: var(--clr-surface-primary);
+    }
+
+    svg {
+      inline-size: 1.25rem;
+      block-size: 1.25rem;
+    }
+  }
+
+
+  /* ATTRIBUTION */
+  .attribution {
+    padding-block: var(--space-300);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-medium);
+    text-align: center;
+
+    a {
+      margin-inline: .5em;
+      border-radius: .15em;
+      transition: font-weight var(--transition-fast);
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset-inline-end: 0;
+        inset-block-end: -0.125rem;
+        inline-size: 100%;
+        block-size: 0.125rem;
+        background-color: currentColor;
+        transform: scaleX(1);
+        transition: transform var(--transition-fast);
+        pointer-events: none;
+      }
+
+      &:hover {
+        font-weight: var(--fw-bold);
+      }
+
+      &:is(:hover, :focus-visible)::after {
+        transform: scaleX(0);
+      }
+    }
+  }
+}
+
+@layer utilities {
+
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--stack-space, 1rem);
+  }
+
+  .cluster {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--cluster-space, 1rem);
+  }
+}
