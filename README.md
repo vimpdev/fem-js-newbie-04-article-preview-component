@@ -14,10 +14,10 @@ A responsive article preview component featuring an accessible share interaction
 
 ---
 
-## Live
+## Links
 
 - [**Live Preview**](https://vimpdev.github.io/fem-js-newbie-04-article-preview-component/)
-<!-- - [**Frontend Mentor Solution**]() -->
+- [**Frontend Mentor Solution**](https://www.frontendmentor.io/solutions/article-preview-component-accessible-share-and-progressive-enhancement-_pqyPNE2zl)
 
 ---
 
